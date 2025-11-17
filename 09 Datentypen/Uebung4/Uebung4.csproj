@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Array1.cs" />
+    <Compile Remove="Array2.cs" />
+    <Compile Remove="Array3.cs" />
+  </ItemGroup>
+
 </Project>
