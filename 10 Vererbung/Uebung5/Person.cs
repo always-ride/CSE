@@ -1,14 +1,15 @@
-﻿namespace Inheritance
+namespace Uebung5
 {
-    public class Person 
+    public abstract class Person(string lastName, string firstName) : IPrintable, INameable
     {
-        public string LastName { get; }
-        public string FirstName { get; }
+        private readonly string lastName = lastName;
+        public string FirstName { get; } = firstName;
 
-        public Person(string lastName, string firstName)
+        public string GetFullName()
         {
-            LastName = lastName;
-            FirstName = firstName;
+            return $"{FirstName} {lastName}";
         }
+
+        public abstract void Print();
     }
 }

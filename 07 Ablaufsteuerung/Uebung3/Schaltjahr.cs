@@ -1,29 +1,35 @@
-using System;
-
 class Schaltjahr
 {
     public static bool IsSchaltjahr(int x)
     {
-        // TODO
-        return true;
+        return x % 400 == 0 ? true :
+               x % 100 == 0 ? false :
+               x %   4 == 0;
     }
 }
-
 
 public class Testclass
 {
     public static void Main()
     {
-        Console.Write("Geben Sie eine Jahreszahl ein: ");
-        int Jahr = Convert.ToInt32(Console.ReadLine());
-        if (Schaltjahr.IsSchaltjahr(Jahr))
+        while (true) 
         {
-            Console.WriteLine("Das Jahr {0} ist ein Schaltjahr", Jahr);
+            try { TestSchaltjahr(); }
+            catch (FormatException) { continue; }    
+            catch (OverflowException) { continue; }
+            
+            Console.Write("Verlassen mit 'e' für exit: ");
+            if (Console.ReadKey().KeyChar == 'e') { break; }
         }
-        else
-        {
-            Console.WriteLine("Das Jahr {0} ist kein Schaltjahr", Jahr);
-        }
-        Console.ReadLine();
+    }
+
+    private static void TestSchaltjahr()
+    {
+        Console.Write("\nGeben Sie eine Jahreszahl ein: ");
+
+        int jahr = Convert.ToInt32(Console.ReadLine());
+        string wasDenkstDu = Schaltjahr.IsSchaltjahr(jahr) ? "ein" : "kein";
+
+        Console.WriteLine($"Das Jahr {jahr} ist {wasDenkstDu} Schaltjahr");
     }
 }

@@ -1,8 +1,7 @@
-﻿namespace Uebung5
+namespace Uebung5
 {
     public interface IPrintable
     {
         void Print();
     }
-
 }
